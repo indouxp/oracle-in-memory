@@ -1,0 +1,22 @@
+[oracle@macbook oracle-in-memory]$ time sqlplus indou/indou @ ./ins-tbl_emp.sql
+
+SQL*Plus: Release 12.2.0.1.0 Production on 月 9月 3 09:33:28 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+最終正常ログイン時間: 月 9月  03 2018 09:28:52 +09:00
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+
+1000000行が作成されました。
+
+経過: 00:05:11.04
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+
+real    5m11.359s
+user    0m0.047s
+sys     0m0.027s
+[oracle@macbook oracle-in-memory]$
+
