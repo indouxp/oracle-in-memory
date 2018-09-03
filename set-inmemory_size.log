@@ -1,0 +1,73 @@
+[oracle@macbook oracle-in-memory]$ sqlplus / as sysdba
+
+SQL*Plus: Release 12.2.0.1.0 Production on 月 9月 3 09:22:44 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+SQL> @./set-inmemory_size.sql
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+hi_shared_memory_address             integer     0
+inmemory_adg_enabled                 boolean     TRUE
+inmemory_clause_default              string
+inmemory_expressions_usage           string      ENABLE
+inmemory_force                       string      DEFAULT
+inmemory_max_populate_servers        integer     1
+inmemory_query                       string      ENABLE
+inmemory_size                        big integer 512M
+inmemory_trickle_repopulate_servers_ integer     1
+percent
+inmemory_virtual_columns             string      MANUAL
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+memory_max_target                    big integer 1520M
+memory_target                        big integer 1520M
+optimizer_inmemory_aware             boolean     TRUE
+shared_memory_address                integer     0
+
+システムが変更されました。
+
+データベースがクローズされました。
+データベースがディスマウントされました。
+ORACLEインスタンスがシャットダウンされました。
+ORACLEインスタンスが起動しました。
+
+Total System Global Area 1593835520 bytes
+Fixed Size                  8621184 bytes
+Variable Size             973079424 bytes
+Database Buffers           67108864 bytes
+Redo Buffers                8155136 bytes
+In-Memory Area            536870912 bytes
+データベースがマウントされました。
+データベースがオープンされました。
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+hi_shared_memory_address             integer     0
+inmemory_adg_enabled                 boolean     TRUE
+inmemory_clause_default              string
+inmemory_expressions_usage           string      ENABLE
+inmemory_force                       string      DEFAULT
+inmemory_max_populate_servers        integer     1
+inmemory_query                       string      ENABLE
+inmemory_size                        big integer 512M
+inmemory_trickle_repopulate_servers_ integer     1
+percent
+inmemory_virtual_columns             string      MANUAL
+
+NAME                                 TYPE        VALUE
+------------------------------------ ----------- ------------------------------
+memory_max_target                    big integer 1520M
+memory_target                        big integer 1520M
+optimizer_inmemory_aware             boolean     TRUE
+shared_memory_address                integer     0
+SQL> exit
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+[oracle@macbook oracle-in-memory]$
+
