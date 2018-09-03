@@ -1,0 +1,182 @@
+[oracle@macbook oracle-in-memory]$ cat alt-tab_inmemory.sh
+#!/bin/sh
+
+set -eu
+USER=indou
+PASS=indou
+
+time sqlplus -S $USER/$PASS <<EOT
+  whenever sqlerror exit failure rollback
+  alter table tbl_emp inmemory memcompress for query low priority critical;
+  exit 0
+EOT
+
+[oracle@macbook oracle-in-memory]$ ./alt-tab_inmemory.sh
+
+表が変更されました。
+
+
+real    0m0.637s
+user    0m0.034s
+sys     0m0.027s
+[oracle@macbook oracle-in-memory]$ sqlplus system/oracle @ ./chk-population.sql
+
+SQL*Plus: Release 12.2.0.1.0 Production on 月 9月 3 09:57:44 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+最終正常ログイン時間: 月 9月  03 2018 09:55:44 +09:00
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+
+レコードが選択されませんでした。
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+[oracle@macbook oracle-in-memory]$ sqlplus system/oracle @ ./chk-population.sql
+
+SQL*Plus: Release 12.2.0.1.0 Production on 月 9月 3 09:57:55 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+最終正常ログイン時間: 月 9月  03 2018 09:57:44 +09:00
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+
+SEGMENT_NAME
+--------------------------------------------------------------------------------
+        MB INMEMORY_MB POPULATE_STAT
+---------- ----------- -------------
+TBL_EMP
+134.664063         .25 STARTED
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+[oracle@macbook oracle-in-memory]$ sqlplus system/oracle @ ./chk-population.sql
+
+SQL*Plus: Release 12.2.0.1.0 Production on 月 9月 3 09:58:09 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+最終正常ログイン時間: 月 9月  03 2018 09:57:55 +09:00
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+
+SEGMENT_NAME
+--------------------------------------------------------------------------------
+        MB INMEMORY_MB POPULATE_STAT
+---------- ----------- -------------
+TBL_EMP
+134.664063    116.4375 COMPLETED
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+[oracle@macbook oracle-in-memory]$ sqlplus system/oracle @ ./chk-population.sql
+
+SQL*Plus: Release 12.2.0.1.0 Production on 月 9月 3 09:58:21 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+最終正常ログイン時間: 月 9月  03 2018 09:58:09 +09:00
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+
+SEGMENT_NAME
+--------------------------------------------------------------------------------
+        MB INMEMORY_MB POPULATE_STAT
+---------- ----------- -------------
+TBL_EMP
+134.664063    116.4375 COMPLETED
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+[oracle@macbook oracle-in-memory]$ sqlplus system/oracle @ ./chk-population.sql
+
+SQL*Plus: Release 12.2.0.1.0 Production on 月 9月 3 09:58:32 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+最終正常ログイン時間: 月 9月  03 2018 09:58:21 +09:00
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+
+SEGMENT_NAME
+--------------------------------------------------------------------------------
+        MB INMEMORY_MB POPULATE_STAT
+---------- ----------- -------------
+TBL_EMP
+134.664063    116.4375 COMPLETED
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+[oracle@macbook oracle-in-memory]$ ./disk.sh
+
+セッションが変更されました。
+
+
+  COUNT(*)
+----------
+       569
+
+経過: 00:00:00.81
+[oracle@macbook oracle-in-memory]$ ./mem.sh
+
+セッションが変更されました。
+
+
+  COUNT(*)
+----------
+       569
+
+経過: 00:00:00.77
+[oracle@macbook oracle-in-memory]$ ./disk.sh
+
+セッションが変更されました。
+
+
+  COUNT(*)
+----------
+       569
+
+経過: 00:00:00.68
+[oracle@macbook oracle-in-memory]$ ./mem.sh
+
+セッションが変更されました。
+
+
+  COUNT(*)
+----------
+       569
+
+経過: 00:00:00.38
+[oracle@macbook oracle-in-memory]$ sqlplus system/oracle @ ./chk-population.sql
+
+SQL*Plus: Release 12.2.0.1.0 Production on 月 9月 3 09:59:52 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+最終正常ログイン時間: 月 9月  03 2018 09:58:32 +09:00
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+
+SEGMENT_NAME
+--------------------------------------------------------------------------------
+        MB INMEMORY_MB POPULATE_STAT
+---------- ----------- -------------
+TBL_EMP
+134.664063    116.4375 COMPLETED
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+[oracle@macbook oracle-in-memory]$ 
