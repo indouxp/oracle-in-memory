@@ -1,0 +1,30 @@
+[oracle@macbook oracle-in-memory]$ sqlplus indou/indou @  crt-tbl_emp.sql
+
+SQL*Plus: Release 12.2.0.1.0 Production on 月 9月 3 09:28:52 2018
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+最終正常ログイン時間: 月 9月  03 2018 09:20:22 +09:00
+
+
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+に接続されました。
+
+表が削除されました。
+
+経過: 00:00:07.69
+
+表が作成されました。
+
+経過: 00:00:00.32
+
+表が変更されました。
+
+経過: 00:00:00.25
+
+索引が作成されました。
+
+経過: 00:00:00.08
+Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Productionとの接続が切断されました。
+[oracle@macbook oracle-in-memory]$
+
