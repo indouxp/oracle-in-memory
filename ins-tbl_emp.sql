@@ -17,8 +17,8 @@ insert into tbl_emp (emp_id, first_name, last_name, email, create_date, update_d
      sysdate,
      sysdate
    from
-     (select 0 from all_catalog where rownum <= 1000),
-     (select 0 from all_catalog where rownum <= 1000)
+     (select 0 from all_catalog where rownum <= 2000),
+     (select 0 from all_catalog where rownum <= 2000)
   );
 
 exit 0

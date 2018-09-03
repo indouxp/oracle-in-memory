@@ -1,4 +1,6 @@
 
 whenever sqlerror exit failure rollback
-select count(*) from tbl_emp;
+set termout on
+column count format "999,999,999,990"
+select count(*) count from tbl_emp;
 
